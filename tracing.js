@@ -12,7 +12,7 @@ const { registerInstrumentations } = require("@opentelemetry/instrumentation");
 const { JaegerExporter } = require("@opentelemetry/exporter-jaeger");
 //Exporter
 module.exports = (serviceName) => {
-   const exporter = JaegerExporter;
+   const exporter = new JaegerExporter();
    const provider = new NodeTracerProvider({
        resource: new Resource({
            [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
